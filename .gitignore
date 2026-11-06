@@ -1,0 +1,15 @@
+# Herramientas pesadas (se reinstalan)
+node_modules/
+.herramientas/
+proyecto/whisper.cpp/
+proyecto/out/
+proyecto/trabajo/
+proyecto/public/entrada/
+proyecto/public/musica/
+# Videos y audio de la usuaria (pesados / privados)
+grabaciones/*
+referencias/*
+musica/*
+exportados/*
+!*/.gitkeep
+!exportados/muestra-estilo.mp4
