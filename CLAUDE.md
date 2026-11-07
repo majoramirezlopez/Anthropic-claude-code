@@ -61,8 +61,13 @@ Cuando la usuaria pida un cambio ("hook más grande", "subtítulos más abajo"):
 **siempre**, actualizar también `estilo.md` y anotarlo en su "Historial de cambios".
 
 ## Notas del entorno
-- En la nube de Claude Code la red solo deja registros de paquetes y GitHub: huggingface.co
-  (modelos de Whisper), Instagram/YouTube y remotion.media están bloqueados salvo que se habiliten.
+- En la nube de Claude Code se usa el entorno "anthropic-claude-code": deja pasar registros de
+  paquetes, GitHub y Hugging Face (modelos de Whisper). Instagram, YouTube y remotion.media siguen
+  bloqueados: las referencias se suben a mano a `referencias/` (o por Google Drive).
+- Bajar otro modelo acá: `curl -sSL -o proyecto/whisper.cpp/ggml-small.bin https://huggingface.co/ggerganov/whisper.cpp/resolve/main/ggml-small.bin`
+  (el `fetch` de Node no pasa por el proxy de la nube).
+- `transcribir.mjs` recorta el fin de cada palabra con `silencedetect` (umbral = volumen medio − 14 dB),
+  porque whisper.cpp estira las palabras sobre los silencios. Idioma: `IDIOMA=en` para otro idioma (por defecto `es`).
 - `proyecto/remotion.config.ts` usa el Chrome headless de `/opt/pw-browsers` si existe; en otra
   compu Remotion baja el suyo solo.
 - Instalación en otra compu: `cd proyecto && npm install && node scripts/instalar-whisper.mjs base`,
